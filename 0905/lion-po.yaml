@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lion-app
+  labels:
+    app: lion-app
+spec:
+  imagePullSecrets:
+    - name: regcred
+  containers:
+    - name: lion-app
+      image: lion-cr01.kr.ncr.ntruss.com/lion-app:sqlite
+      ports:
+        - containerPort: 8000
