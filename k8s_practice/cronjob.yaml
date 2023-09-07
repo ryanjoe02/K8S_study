@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: cron-job
+        spec:
+          containers:
+            - name: lion-batch
+              image: teacherssamko/batch-job
+          restartPolicy: OnFailure

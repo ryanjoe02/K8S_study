@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lion-manual
+spec:
+  containers:
+    - image: teacherssamko/simple-web:v1
+      name: lion-manual
+      ports:
+        - containerPort: 8000

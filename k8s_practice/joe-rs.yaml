@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: joe
+  labels:
+    app: joe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: joe
+  template:
+    metadata:
+      labels:
+        app: joe
+    spec:
+      containers:
+        - name: joe
+          image: teacherssamko/simple-web:v1
+          ports:
+            - containerPort: 8000

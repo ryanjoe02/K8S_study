@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lion-liveness
+spec:
+  containers:
+    - name: lion
+      image: teacherssamko/simple-web:unhealthy
+      ports:
+        - containerPort: 8000
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 8000

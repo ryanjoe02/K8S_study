@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: lion-batch
+spec:
+  completions: 5
+  template:
+    spec:
+      containers:
+        - name: lion-batch
+          image: teacherssamko/batch-job
+      restartPolicy: OnFailure
