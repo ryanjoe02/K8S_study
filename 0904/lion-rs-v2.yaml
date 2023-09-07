@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: lion-v2
+  labels:
+    app: lion-v2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lion-v2
+  template:
+    metadata:
+      labels:
+        app: lion-v2
+    spec:
+      containers:
+        - name: lion-v2
+          image: teacherssamko/simple-web:v2
+          ports:
+            - containerPort: 8000
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8000
